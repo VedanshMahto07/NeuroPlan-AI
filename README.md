@@ -83,7 +83,8 @@ https://github.com/user-attachments/assets/9907d751-fc5b-4d3e-bf13-9e8fc41883bd
 # 👨‍💻 Developed By
 
 Vedansh Mahto
-
+and
+Rishav Raj
 ---
 
 # ⭐ Support
