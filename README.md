@@ -76,7 +76,7 @@ https://github.com/user-attachments/assets/9907d751-fc5b-4d3e-bf13-9e8fc41883bd
 
 # 🌐 Live Demo
 
-🔗 Add your Vercel/Netlify deployment link here
+🔗 neuroplan-ai.vercel.app
 
 ---
 
