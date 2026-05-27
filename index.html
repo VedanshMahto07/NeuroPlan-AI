@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeuroPlan AI — Smart Study Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cur-h" id="curH"></div>
+<div class="cur-v" id="curV"></div>
+<div class="cur-dot" id="curDot"></div>
+<div class="cur-ring" id="curRing"></div>
+<div class="scanline"></div>
+
+<canvas id="particles"></canvas>
+
+<nav id="navbar">
+  <div class="logo">Neuro<span>Plan</span> AI</div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#features-section">Features</a></li>
+    <li><a href="#input-section">Planner</a></li>
+    <li><a href="#dashboard-section">Dashboard</a></li>
+    <li><a href="#timer-section">Focus</a></li>
+  </ul>
+  <button class="btn-launch" data-scroll="input-section">Launch Planner</button>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-content">
+    <div class="hero-tag">⬡ AI-POWERED INTELLIGENCE SYSTEM</div>
+    <h1 class="hero-title">
+      <div class="line1">AI-Powered Smart</div>
+      <div class="line2">Study Planning</div>
+    </h1>
+    <p class="hero-sub">Transform your productivity using intelligent study scheduling, adaptive workload distribution, and next-generation planning systems.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" data-scroll="input-section">Get Started</button>
+      <button class="btn-secondary" data-scroll="dashboard-section">Explore Dashboard</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num" data-count="50000">0</div>
+        <div class="stat-label">Students Powered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="98">0</div>
+        <div class="stat-label">Success Rate %</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-label">Avg Grade Boost</div>
+      </div>
+    </div>
+
+    <div class="hero-mockup-wrap">
+      <div class="hero-mockup">
+        <div class="mock-topbar">
+          <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+          <div class="mock-title-bar">NEUROPLAN AI — STUDY DASHBOARD v2.6</div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-stat"><div class="mock-stat-val" style="color:var(--cyan)">14</div><div class="mock-stat-lbl">STUDY DAYS</div></div>
+          <div class="mock-stat"><div class="mock-stat-val" style="color:var(--purple)">86h</div><div class="mock-stat-lbl">TOTAL HOURS</div></div>
+          <div class="mock-stat"><div class="mock-stat-val" style="color:var(--green)">72%</div><div class="mock-stat-lbl">COMPLETE</div></div>
+          <div class="mock-chart-row">
+            <div class="mock-bar-item"><span>PHYSICS</span><div class="mock-bar-track"><div class="mock-bar-fill" style="--w:88%;width:88%;background:linear-gradient(90deg,#00f5ff,#0066ff);"></div></div><span style="color:var(--cyan);font-family:'Orbitron',monospace;font-size:.65rem;">88%</span></div>
+            <div class="mock-bar-item"><span>MATHS</span><div class="mock-bar-track"><div class="mock-bar-fill" style="--w:65%;width:65%;background:linear-gradient(90deg,#9d00ff,#ff00aa);"></div></div><span style="color:var(--purple);font-family:'Orbitron',monospace;font-size:.65rem;">65%</span></div>
+            <div class="mock-bar-item"><span>CHEMISTRY</span><div class="mock-bar-track"><div class="mock-bar-fill" style="--w:43%;width:43%;background:linear-gradient(90deg,#ff00aa,#ffaa00);"></div></div><span style="color:var(--pink);font-family:'Orbitron',monospace;font-size:.65rem;">43%</span></div>
+            <div class="mock-bar-item"><span>BIOLOGY</span><div class="mock-bar-track"><div class="mock-bar-fill" style="--w:91%;width:91%;background:linear-gradient(90deg,#00ff88,#00f5ff);"></div></div><span style="color:var(--green);font-family:'Orbitron',monospace;font-size:.65rem;">91%</span></div>
+          </div>
+          <div class="mock-calendar">
+            <div class="mock-day done">01</div><div class="mock-day done">02</div><div class="mock-day done">03</div><div class="mock-day done">04</div><div class="mock-day done">05</div><div class="mock-day done">06</div><div class="mock-day today">07</div>
+            <div class="mock-day">08</div><div class="mock-day">09</div><div class="mock-day">10</div><div class="mock-day">11</div><div class="mock-day">12</div><div class="mock-day">13</div><div class="mock-day">14</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock-glow-line"></div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section class="features-section" id="features-section">
+  <div class="section-header reveal">
+    <div class="section-tag">CAPABILITIES</div>
+    <h2 class="section-title">Next-Gen <span class="accent">Features</span></h2>
+    <p class="section-sub">Powered by intelligent algorithms and futuristic design.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <div class="feat-icon">🧠</div>
+      <div class="feat-title">Smart Scheduling</div>
+      <div class="feat-desc">AI distributes your syllabus intelligently across available days, adapting to difficulty levels.</div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon">⚡</div>
+      <div class="feat-title">Adaptive Workload</div>
+      <div class="feat-desc">Hard subjects automatically receive more time. Easy ones are scheduled efficiently.</div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon">🎯</div>
+      <div class="feat-title">Focus Tracking</div>
+      <div class="feat-desc">Pomodoro-powered focus timer with session analytics and productivity scoring.</div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon">📊</div>
+      <div class="feat-title">Progress Analytics</div>
+      <div class="feat-desc">Real-time progress visualization with animated charts and completion metrics.</div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon">🚀</div>
+      <div class="feat-title">Daily Goal Engine</div>
+      <div class="feat-desc">Auto-generated daily targets keeping workload balanced and stress-free.</div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon">🔮</div>
+      <div class="feat-title">AI Dashboard</div>
+      <div class="feat-desc">Cinematic productivity command center with holographic-style data displays.</div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section class="input-section" id="input-section">
+  <div class="section-header reveal">
+    <div class="section-tag">PLANNER INIT</div>
+    <h2 class="section-title">Configure Your <span class="accent">Study Plan</span></h2>
+    <p class="section-sub">Enter your subjects and the AI will generate an optimized schedule.</p>
+  </div>
+
+  <div class="config-grid reveal">
+    <div class="input-group">
+      <label>Number of Subjects</label>
+      <input class="cyber-input" type="number" id="num-subjects" min="1" max="10" placeholder="e.g. 3"/>
+    </div>
+    <div class="input-group">
+      <label>Days Available</label>
+      <input class="cyber-input" type="number" id="num-days" min="1" max="90" placeholder="e.g. 7"/>
+    </div>
+    <div class="input-group">
+      <label>Daily Study Hours</label>
+      <input class="cyber-input" type="number" id="daily-hours" min="1" max="16" placeholder="e.g. 4"/>
+    </div>
+    <div class="input-group">
+      <label>Goal / Exam Name</label>
+      <input class="cyber-input" type="text" id="goal-name" placeholder="e.g. Final Exam"/>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-bottom:2rem;" class="reveal">
+    <button class="btn-secondary" id="btn-generate-cards" style="padding:.75rem 2rem;font-family:'Orbitron',monospace;font-size:.8rem;letter-spacing:.1em;cursor:none;">
+      ⬡ Generate Subject Cards
+    </button>
+  </div>
+
+  <div id="subjects-container"></div>
+
+  <div style="text-align:center;margin-top:2rem;" class="reveal">
+    <button class="generate-btn" id="btn-generate-plan"><span>⚡ GENERATE STUDY PLAN</span></button>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section id="dashboard-section">
+  <div class="section-header reveal">
+    <div class="section-tag">COMMAND CENTER</div>
+    <h2 class="section-title">Your <span class="accent">AI Dashboard</span></h2>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 3rem;">
+    <div class="dash-grid" id="dash-grid"></div>
+    <div class="plan-container" id="plan-container"></div>
+  </div>
+</section>
+
+<section id="progress-section">
+  <div class="section-header reveal" style="padding:3rem 3rem 0;">
+    <div class="section-tag">ANALYTICS</div>
+    <h2 class="section-title">Subject <span class="accent">Progress</span></h2>
+  </div>
+  <div class="progress-grid" id="progress-grid" style="padding:2rem 3rem;"></div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section class="timer-section" id="timer-section">
+  <div class="section-header reveal">
+    <div class="section-tag">FOCUS MODE</div>
+    <h2 class="section-title">Pomodoro <span class="accent">Focus Timer</span></h2>
+    <p class="section-sub">Deep work sessions for maximum productivity.</p>
+  </div>
+  <div class="timer-center">
+    <div class="timer-ring-wrap">
+      <svg width="260" height="260" viewBox="0 0 260 260">
+        <defs>
+          <linearGradient id="timerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00f5ff"/>
+            <stop offset="100%" stop-color="#9d00ff"/>
+          </linearGradient>
+        </defs>
+        <circle class="timer-ring-bg" cx="130" cy="130" r="120"/>
+        <circle class="timer-ring-prog" id="timer-ring" cx="130" cy="130" r="120"/>
+      </svg>
+      <div class="timer-display">
+        <div class="timer-time" id="timer-display">25:00</div>
+        <div class="timer-label" id="timer-mode">FOCUS</div>
+      </div>
+    </div>
+    <div class="timer-btns">
+      <button class="timer-btn" id="timer-start">START</button>
+      <button class="timer-btn" id="timer-pause" style="display:none">PAUSE</button>
+      <button class="timer-btn" id="timer-reset">RESET</button>
+    </div>
+    <div class="timer-stats">
+      <div>
+        <div class="t-stat-val" id="sessions-done">0</div>
+        <div class="t-stat-label">SESSIONS TODAY</div>
+      </div>
+      <div>
+        <div class="t-stat-val" id="focus-mins">0</div>
+        <div class="t-stat-label">FOCUS MINUTES</div>
+      </div>
+      <div>
+        <div class="t-stat-val" id="prod-score">0</div>
+        <div class="t-stat-label">PRODUCTIVITY %</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section class="testimonials-section">
+  <div class="section-header reveal">
+    <div class="section-tag">NEURAL FEEDBACK</div>
+    <h2 class="section-title">Student <span class="accent">Reviews</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">NeuroPlan completely changed how I prepare for exams. The AI scheduling is insanely smart — it knew exactly how much time I needed for each subject.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">AR</div>
+        <div><div class="testi-name">Arjun Rao</div><div class="testi-role">Engineering Student, IIT Bombay</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">I cleared my UPSC prelims using NeuroPlan. The focus timer kept me disciplined and the dashboard made tracking progress addictive.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">PK</div>
+        <div><div class="testi-name">Priya Krishnan</div><div class="testi-role">UPSC Aspirant, Delhi</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">Best study planning tool I've ever used. The cyberpunk UI makes studying feel like a mission, not a chore. Productivity went through the roof.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">SK</div>
+        <div><div class="testi-name">Siddharth Kumar</div><div class="testi-role">JEE Advanced Candidate</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Neuro<span>Plan</span> AI</div>
+      <p class="footer-tagline">Powered by Intelligent<br/>Study Technology</p>
+      <p class="footer-copy">© 2026 NeuroPlan AI Systems.<br/>All Rights Reserved.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Protocols</div>
+      <a href="#">Privacy Protocol</a>
+      <a href="#">Terms of Engagement</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Interface</div>
+      <a href="#features-section">Features</a>
+      <a href="#input-section">Planner</a>
+      <a href="#dashboard-section">Dashboard</a>
+      <a href="#timer-section">Focus Timer</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Support</div>
+      <p class="footer-support-label">Questions? Reach us</p>
+      <a href="mailto:hello@neuroplan.ai" class="footer-email">hello@neuroplan.ai</a>
+      <a href="#">FAQ</a>
+      <a href="#">Help Centre</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-connect-label">Connect</div>
+    <div class="footer-socials">
+      <a href="#" aria-label="GitHub" class="social-icon git-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn" class="social-icon lkd-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="#" aria-label="Twitter / X" class="social-icon x-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram" class="social-icon insta-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="notif" id="notif">
+  <div class="notif-title" id="notif-title">SYSTEM</div>
+  <div class="notif-msg" id="notif-msg"></div>
+</div>
+
+<div class="ai-loader" id="ai-loader">
+  <div class="loader-ring">
+    <svg width="120" height="120" viewBox="0 0 120 120">
+      <defs>
+        <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00f5ff"/>
+          <stop offset="100%" stop-color="#9d00ff"/>
+        </linearGradient>
+      </defs>
+      <circle class="loader-ring-track" cx="60" cy="60" r="55"/>
+      <circle class="loader-ring-prog" cx="60" cy="60" r="55"/>
+    </svg>
+    <div class="loader-icon">🧠</div>
+  </div>
+  <div class="loader-steps">
+    <div class="loader-step" id="lstep-0"><div class="loader-step-dot"></div>ANALYZING SUBJECTS...</div>
+    <div class="loader-step" id="lstep-1"><div class="loader-step-dot"></div>CALCULATING WORKLOAD...</div>
+    <div class="loader-step" id="lstep-2"><div class="loader-step-dot"></div>GENERATING ROADMAP...</div>
+    <div class="loader-step" id="lstep-3"><div class="loader-step-dot"></div>OPTIMIZING SCHEDULE...</div>
+    <div class="loader-step" id="lstep-4"><div class="loader-step-dot"></div>FINALIZING PLAN...</div>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar" id="loader-bar"></div></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
